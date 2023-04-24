@@ -1,0 +1,191 @@
+package DAKhoAnhPhongCanh;
+
+import java.util.Scanner;
+ 
+public class Main {
+ 
+    public static void main(String[] args) {
+        QuanLyKhoAnhPhongCanh qlka = new QuanLyKhoAnhPhongCanh();
+        Scanner sc = new Scanner(System.in);
+        int menu;
+ 
+        do {
+            System.out.println("Menu lua chon chuc nang---------------------------");
+            System.out.println("1.  Them thong tin anh phong canh");
+            System.out.println("2.  In thong tin toan bo anh co trong kho");
+            System.out.println("3.  Chi in thong tin AnhPhongCanhVietNam");
+            System.out.println("4.  Chi in thong tin Anh Phong Canh Quoc Te");
+            System.out.println("5.  Kiem tra so luong anh trong kho");
+            System.out.println("6.  Tim kiem anh theo ten");
+            System.out.println("0.  Thoat chuong trinh-Xin cam on");
+            System.out.print("Nhap: ");
+            menu = sc.nextInt();
+ 
+            switch (menu) {
+                case 1:
+                    int menu_1;
+                    do {
+ 
+                        System.out.println("Menu----------");
+                        System.out.println("1. AnhPhongCanhVietNam");
+                        System.out.println("2. Anh Phong Canh Quoc Te");
+                        System.out.println("0. Quay lai chuong trinh");
+                        System.out.print("Nhap: ");
+                        menu_1 = sc.nextInt();
+ 
+                        switch (menu_1) {
+                            case 1: {
+                                sc.nextLine();
+                                System.out.print("Nhap ten: ");
+                                String Name = sc.nextLine();
+ 
+                                System.out.print("Nhap TacGia: ");
+                                String  TacGia = sc.nextLine();
+ 
+                                System.out.print("Nhap KichThuoc: ");
+                                String KichThuoc = sc.nextLine();
+ 
+ 
+                                System.out.print("Nhap Ten Tinh Thanh: ");
+                                String TenTinhThanh = sc.nextLine();
+ 
+
+                                NgayNhapXuat date = new NgayNhapXuat();
+                                System.out.print("Nhap vao nam hien tai: ");
+                                int namhientai = sc.nextInt();
+ 
+                                System.out.println("Nhap vao dd/mm/yyyy");
+                                System.out.print("Nhap dd: ");
+                                date.setDay(sc.nextInt());
+                                if (date.getDay() < 1 || date.getDay() > 31) {
+                                    do {
+                                        System.out.println("Khong hop le, nhap lai");
+                                        System.out.print("Nhap lai ngay: ");
+                                        date.setDay(sc.nextInt());
+                                    } while (date.getDay() < 1 || date.getDay() > 31);
+                                }
+ 
+                                System.out.print("Nhap mm: ");
+                                date.setMonth(sc.nextInt());
+                                if (date.getMonth() < 1 || date.getMonth() > 12) {
+                                    do {
+                                        System.out.println("Khong hop le, nhap lai");
+                                        System.out.print("Nhap lai thang: ");
+                                        date.setMonth(sc.nextInt());
+                                    } while (date.getMonth() < 1 || date.getMonth() > 12);
+                                }
+ 
+                                System.out.print("Nhap yyyy: ");
+                                date.setYear(sc.nextInt());
+                                if (date.getYear() < 1943 || date.getYear() > namhientai) {
+                                    do {
+                                        System.out.println("Khong hop le, nhap lai");
+                                        System.out.print("Nhap lai nam: ");
+                                        date.setYear(sc.nextInt());
+                                    } while (date.getYear() < 1943 || date.getYear() > namhientai);
+                                }
+ 
+                                AnhPhongCanh apc = new AnhPhongCanhVietNam(Name, TacGia, KichThuoc, date, TenTinhThanh);
+                                qlka.them_anh(apc);
+                                System.out.println("Them thanh cong-----------");
+                            }
+                            break;
+                            case 2: {
+                                sc.nextLine();
+                                System.out.print("Nhap ten: ");
+                                String Name = sc.nextLine();
+ 
+                                System.out.print("Nhap TacGia: ");
+                                String TacGia = sc.nextLine();
+                                 System.out.print("Nhap KichThuoc: ");
+                                String KichThuoc = sc.nextLine();
+                                 System.out.print("Nhap Ten Quốc gia: ");
+                                String TenQuocGia = sc.nextLine();
+                                NgayNhapXuat date = new NgayNhapXuat();
+                                System.out.print("Nhap vao nam hien tai: ");
+                                int namhientai = sc.nextInt();
+ 
+                                System.out.println("Nhap vao dd/mm/yyyy");
+                                System.out.print("Nhap dd: ");
+                                date.setDay(sc.nextInt());
+                                if (date.getDay() < 1 || date.getDay() > 31) {
+                                    do {
+                                        System.out.println("Khong hop le, nhap lai");
+                                        System.out.print("Nhap lai ngay: ");
+                                        date.setDay(sc.nextInt());
+                                    } while (date.getDay() < 1 || date.getDay() > 31);
+                                }
+ 
+                                System.out.print("Nhap mm: ");
+                                date.setMonth(sc.nextInt());
+                                if (date.getMonth() < 1 || date.getMonth() > 12) {
+                                    do {
+                                        System.out.println("Khong hop le, nhap lai");
+                                        System.out.print("Nhap lai thang: ");
+                                        date.setMonth(sc.nextInt());
+                                    } while (date.getMonth() < 1 || date.getMonth() > 12);
+                                }
+ 
+                                System.out.print("Nhap yyyy: ");
+                                date.setYear(sc.nextInt());
+                                if (date.getYear() < 1943 || date.getYear() > namhientai) {
+                                    do {
+                                        System.out.println("Khong hop le, nhap lai");
+                                        System.out.print("Nhap lai nam: ");
+                                        date.setYear(sc.nextInt());
+                                    } while (date.getYear() < 1943 || date.getYear() > namhientai);
+                                }
+ 
+                                AnhPhongCanh apc = new AnhPhongCanhQuocTe(Name, TacGia, KichThuoc, date, TenQuocGia);
+                                qlka.them_anh(apc);
+                                System.out.println("Them thanh cong-----------");
+                            }
+                            break;
+                            default:
+                                if (menu_1 == 0) {
+                                    System.out.println("Thoat chuong trinh");
+                                } else {
+                                    System.out.println("Vui long nhap lai lua chon");
+                                }
+                        }
+                    } while (menu_1 != 0);
+                    break;
+                case 2:
+                    if (qlka.kiem_tra_so_luong() == 0) {
+                        System.out.println("Hien khong co anh trong kho");
+                    } else {
+                        System.out.println("So anh hien tai la: " + qlka.kiem_tra_so_luong());
+                    }
+                    qlka.in_thong_tin();
+                    System.out.println("\n");
+                    break;
+               
+                case 3:
+                    qlka.in_AnhPhongCanhVietNam();
+                    System.out.println("\n");
+                    break;
+                case 4:
+                    qlka.in_AnhPhongCanhQuocTe();
+                    System.out.println("\n");
+                    break;
+                case 5:
+                    System.out.println("So anh hien tai la: " + qlka.kiem_tra_so_luong());
+                    System.out.println("\n");
+                    break;
+                case 6:
+                    sc.nextLine();
+                    System.out.print("Nhap ten can tim: ");
+                    String Name = sc.nextLine();
+                    qlka.tim_anh_theo_ten(Name);
+                    System.out.println("\n");
+                    break;
+                    default:
+                    if (menu == 0) {
+                        System.out.println("Thoat chuong trinh");
+                    } else {
+                        System.out.println("Vui long nhap lai lua chon");
+                    }
+            }
+        } while (menu != 0);
+    }
+}
